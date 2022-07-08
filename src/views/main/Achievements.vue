@@ -9,7 +9,9 @@
       <h3 style="text-align:left; padding: 0; margin: 0 0 1.5%;">
         {{ achievement.name }}
       </h3>
-      <div style="margin-bottom: 1.5%; text-align:left;" v-html="achievement.description">
+      <div style="margin-bottom: 1.5%; text-align:left;
+        color: rgb(61, 65, 68);
+        font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;" v-html="achievement.description">
       </div>
       <el-table :data="achievement.dataTable" style="width: 100%" :fit="true">
         <el-table-column v-for="dataType in achievement.dataTypes"

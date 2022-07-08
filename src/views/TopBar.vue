@@ -6,10 +6,10 @@
 
     <div class="top-bar-element" style="padding: 0 10px 1% 15px;">
       <h3 class="top-bar-text" style="margin: 0;">
-        {{authorName}}
+        {{ authorName }}
       </h3>
       <div class="top-bar-text" style="font-size: 14px;">
-        {{authorBiography}}
+        {{ authorBiography }}
       </div>
     </div>
 
@@ -19,7 +19,9 @@
       </el-button>
       <template #dropdown>
         <div style="padding: 3px 10px;">
-          <el-link v-for="link in links" style="display: block; width: 150px; margin-top: 3px; margin-bottom: 3px;">
+          <el-link v-for="link in links"
+                   style="display: block; width: 150px; margin-top: 3px; margin-bottom: 3px;"
+                   :href="link.link">
             <img :src="require(`@/assets/${link.img}`)"
                  style="vertical-align: middle; width: 20px;"/>
             <span style="vertical-align: middle; margin-left: 10px; width: 110px">

@@ -6,14 +6,18 @@
           'padding-left': '10px'}"
   >
     <div class="paragraph">
-      Hello!
-    </div>
-    <div class="paragraph">
+      <h1>Hello!</h1>
       This is a website containing my personal profile such as my projects I have done, my resume, my achievements, etc.
     </div>
     <el-divider/>
     <div class="paragraph">
-      I am currently in grade 12 in St. Augustine Catholic High School. I am very interested in computer technologies and algorithms.
+      <h1>Where I Am For Now?</h1>
+      I am currently an incoming student in University of Waterloo Honour Mathematics Program.
+    </div>
+    <el-divider/>
+    <div class="paragraph">
+      <h1>My Hobby</h1>
+      I am very interested in computer technology and programming. It is able to access my projects in "Skills" Section.
     </div>
     <el-divider/>
     <div class="paragraph">
@@ -42,6 +46,8 @@
 .paragraph {
   margin-top: 1%;
   margin-bottom: 1%;
+  font-family: Source Sans Pro, Helvetica Neue, Arial, sans-serif;
+  color: rgb(61, 65, 68);
 }
 </style>
 
