@@ -1,4 +1,4 @@
-import {reactiveVariables, windowUpdated, mode} from "@/util/reactive";
+import {reactiveVariables, windowUpdated, mode} from "@/util/Reactive";
 import {createStore} from "vuex";
 import {ref} from "vue";
 

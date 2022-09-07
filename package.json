@@ -10,6 +10,8 @@
     "@element-plus/icons-vue": "^2.0.1",
     "element-plus": "^2.2.2",
     "file-loader": "^6.2.0",
+    "highlight.js": "^11.6.0",
+    "markdown-it": "^13.0.1",
     "mini-css-extract-plugin": "^2.6.1",
     "url-loader": "^4.1.1",
     "vue": "^3.2.13",

@@ -1,5 +1,8 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
+    devServer: {
+        host: "localhost"
+    },
     chainWebpack: config => {
         config.module.rule('pdf')
             .test(/\.pdf$/)

@@ -61,6 +61,9 @@ registerReactiveVariable("mainContainerPaddingBottom", "3%", "5%")
 // HOME
 registerReactiveVariable("homePaddingRight", "25%", "10px")
 
+// BlogDefinition
+registerReactiveVariable("blogPaddingTop", "1.5%", "7%")
+
 // PROJECTS
 // project wide mode and narrow mode is different from the screen, it changes at 550
 const PROJECTS_REACT_WIDTH = 600;

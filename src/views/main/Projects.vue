@@ -12,8 +12,8 @@
 
 <script>
 import {ref} from "vue";
-import {WIDE_MODE, NARROW_MODE} from "@/util/reactive";
-import {PROJECTS_WIDE_MODE, PROJECTS_NARROW_MODE} from "@/util/reactive";
+import {WIDE_MODE, NARROW_MODE} from "@/util/Reactive";
+import {PROJECTS_WIDE_MODE, PROJECTS_NARROW_MODE} from "@/util/Reactive";
 import {onMounted} from "vue";
 import SingleRowProjectCollection from "@/components/projects/SingleRowProjectCollection";
 import DoubleRowProjectCollection from "@/components/projects/DoubleRowProjectCollection";

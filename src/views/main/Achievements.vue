@@ -33,7 +33,6 @@ import {achievements} from "@/assets/Achievements";
 export default {
   name: "Achievements",
   setup() {
-    console.log(achievements.value)
     return {achievements}
   }
 }

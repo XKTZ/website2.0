@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import {WIDE_MODE, NARROW_MODE} from "@/util/reactive";
+import {WIDE_MODE, NARROW_MODE} from "@/util/Reactive";
 import WebsiteHeader from "@/views/Header";
 import AsideBar from "@/views/AsideBar";
 import TopBar from "@/views/TopBar";
@@ -35,7 +35,6 @@ import TopBar from "@/views/TopBar";
 export default {
   components: {TopBar, AsideBar, WebsiteHeader},
   setup() {
-
     return {
       WIDE_MODE,
       NARROW_MODE

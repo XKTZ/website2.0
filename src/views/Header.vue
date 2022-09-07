@@ -59,7 +59,7 @@
 import {ref} from "vue";
 import {More} from "@element-plus/icons-vue";
 import router from "@/router";
-import {WIDE_MODE, NARROW_MODE} from '@/util/reactive';
+import {WIDE_MODE, NARROW_MODE} from '@/util/Reactive';
 import {title} from "@/assets/BasicInformation";
 import {subpages} from "@/assets/Subpages";
 
@@ -69,7 +69,6 @@ export default {
     More
   },
   setup() {
-
     const itemWidth = ref(100 / subpages.length);
 
     const moreColor = ref("black");

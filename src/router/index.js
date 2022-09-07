@@ -3,6 +3,8 @@ import Home from "@/views/main/Home";
 import Projects from "@/views/main/Projects";
 import Skills from "@/views/main/Skills";
 import Achievements from "@/views/main/Achievements";
+import Blogs from "@/views/main/Blogs";
+import Blog from "@/views/main/Blog";
 
 const routes = [
   {
@@ -24,6 +26,16 @@ const routes = [
     path: '/achievements',
     name: 'achievement',
     component: Achievements
+  },
+  {
+    path: '/blogs',
+    name: 'blogs',
+    component: Blogs
+  },
+  {
+    path: '/blog/:id/:title',
+    name: 'blog',
+    component: Blog
   }
 ]
 
