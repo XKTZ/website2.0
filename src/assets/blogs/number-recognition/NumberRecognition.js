@@ -1,9 +1,9 @@
 import {BlogDefinition, BlogPaths, BlogTags, codeBlockOf, imgOf} from "@/assets/blogs/BlogDefinition";
 import {BlogContentTypes} from "@/util/BlogContentUtil";
 
-const createDate = new Date(2022, 9, 4);
+const createDate = new Date(2022, 8, 4);
 
-const updateDate = new Date(2022, 9, 4);
+const updateDate = new Date(2022, 8, 4);
 
 const content = `
 By using pytorch, I trained a number recognition AI, reaching high correctness.
@@ -107,7 +107,7 @@ The result shows the decrement of layers and dimensions don't influence the resu
 
 Even though the normal version of convolution network works, its efficiency is not high enough still. So I removed the layer of the network again.
 
-${codeBlockOf("python",`
+${codeBlockOf("python", `
 class NRLite(nn.Module):
     network: nn.Module
 
@@ -158,14 +158,12 @@ It could be found that the decrement of number of layers doesn't decrease the ov
 ![](${require("@/assets/blogs/number-recognition/img/lite_model_result.png")})
 `
 
-export const NumberRecognition = new BlogDefinition(
-    {
-        title: "Number Recognition in Pytorch",
-        paths: BlogPaths.Pytorch,
-        content: content,
-        contentType: BlogContentTypes.Markdown,
-        tags: [BlogTags.AI, BlogTags.Pytorch, "VGG-16"],
-        createDate: createDate,
-        updateDate: updateDate
-    }
-);
+export const NumberRecognition = new BlogDefinition({
+    title: "Number Recognition in Pytorch",
+    paths: BlogPaths.Pytorch,
+    content: content,
+    contentType: BlogContentTypes.Markdown,
+    tags: [BlogTags.AI, BlogTags.Pytorch, "VGG-16"],
+    createDate: createDate,
+    updateDate: updateDate
+});

@@ -1,5 +1,11 @@
+const blogTitleToUrl = (title) => {
+    return title.split(' ').map(x => x.toLowerCase()).join('-')
+}
+
 export class BlogDefinition {
+    id
     title
+    urlTitle
     paths
     content
     contentType
@@ -9,12 +15,18 @@ export class BlogDefinition {
 
     constructor({title, paths, content, contentType, tags, createDate, updateDate}) {
         this.title = title;
+        this.urlTitle = blogTitleToUrl(this.title);
         this.paths = paths;
         this.content = content;
         this.contentType = contentType;
         this.tags = tags;
         this.createDate = createDate;
         this.updateDate = updateDate;
+    }
+
+    idWith(id) {
+        this.id = id;
+        return this;
     }
 }
 
@@ -39,16 +51,22 @@ ${trim(code, '\n')}
 ${'```'}
 `, '\n')
 
-export const imgOf = (url, alt = '') => `![${alt}]({url})`
+export const imgOf = (url, alt = '') => `![${alt}](${url})`
+
+export const urlOf = (url, alt = '') => `[${alt}](${url})`
 
 export const BlogPaths = {
     AI: ["Artificial Intelligence"],
     Pytorch: ["Artificial Intelligence", "Pytorch"],
     SoftwareDevelopment: ["Software Development"],
+    Algorithms: ["Algorithms"],
+    Codeforces: ["Algorithms", "Codeforces"],
     Hibernate: ["Software Development", "Hibernate"]
 }
 
 export const BlogTags = {
     AI: "Artificial Intelligence",
-    Pytorch: "Pytorch"
+    Pytorch: "Pytorch",
+    Algorithms: "Algorithms",
+    Codeforces: "Codeforces"
 }

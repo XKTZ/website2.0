@@ -1,5 +1,7 @@
 import * as HighlightJs from 'highlight.js';
 import * as MarkdownIt from 'markdown-it';
+import * as MarkdownItTexMath from 'markdown-it-texmath';
+import * as Katex from "katex";
 
 export const BlogContentTypes = {
     HTML: "html",
@@ -13,14 +15,25 @@ const markdownIt = new MarkdownIt({
     highlight: (str, lang) => {
         if (lang && hljs.getLanguage(lang)) {
             try {
-                return hljs.highlight(str, {
-                    language: lang
-                }).value;
-            } catch (_) {}
+                return `<pre class="hljs" style="padding: 10px;"><code>${hljs.highlight(str, {language: lang}).value}</code></pre>`;
+            } catch (_) {
+            }
         }
         return '';
     }
 });
+
+markdownIt.use(MarkdownItTexMath, {
+    engine: Katex.default,
+    delimiters: 'dollars',
+    katexOptions: {
+        macros: {
+            "\\RR": "\\mathbb{R}"
+        }
+    }
+});
+
+console.log(markdownIt.render('$a$'))
 
 const markdownParser = (content) => {
     return markdownIt.render(content);
@@ -28,10 +41,10 @@ const markdownParser = (content) => {
 
 export const parseBlogContent = (content, contentType) => {
     switch (contentType) {
+        case BlogContentTypes.Markdown:
+            return markdownParser(content);
         case BlogContentTypes.HTML:
         default:
             return content;
-        case BlogContentTypes.Markdown:
-            return markdownParser(content);
     }
 }

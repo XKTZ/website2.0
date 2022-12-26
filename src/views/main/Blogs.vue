@@ -4,16 +4,22 @@
          'padding-top': this.$store.state.blogPaddingTop,
          'padding-bottom': this.$store.state.mainContainerPaddingBottom
        }">
-    <div class="blog-link">
-      <router-link
-          custom
-          :to="`/blog/${blogIds[0][0]}/${blogIds[0][1]}`"
-          v-slot="{href, route, navigate, isActive, isExactActive}"
-      >
-        <el-link :href="href" @click="navigate" style="font-size: 18px;" :underline="false">
-          {{ blogs[blogIds[0][0]].title }}
-        </el-link>
-      </router-link>
+    <div>
+      <div v-for="grp in blogGroups">
+        <div class="blog-group-title">
+          {{ grp[0] }}
+        </div>
+        <div v-for="blog in grp[1]" class="blog-link">
+          <router-link
+              custom
+              :to="`/blog/${blog.id}/${blog.urlTitle}`"
+              v-slot="{href, route, navigate, isActive, isExactActive}">
+            <el-link :href="href" @click="navigate" style="font-size: 18px;" :underline="false">
+              {{ blog.title }}
+            </el-link>
+          </router-link>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -27,20 +33,30 @@ import {ref} from "vue";
 
 const markdown = new MarkdownIt();
 
-const blogTitleToUrl = (title) => {
-  return title.split(' ').map(x => x.toLowerCase()).join('-')
-}
-
 export default {
   name: "Blogs",
   components: {Blog},
   setup() {
 
-    const blogIds = ref([...Array(blogs.length).keys()].map(id => [id, blogTitleToUrl(blogs[id].title)]))
+    const blogsByTime = ref((() => {
+      let dict = {};
+      for (let blog of blogs) {
+        let year = parseInt(blog.createDate.getFullYear().toString());
+        if (dict[year] === undefined) {
+          dict[year] = [];
+        }
+        dict[year].push(blog);
+      }
+      let arr = [];
+      for (let [key, value] of Object.entries(dict)) {
+        arr.push([key, value]);
+      }
+      arr.sort((x, y) => (y[0] - x[0]));
+      return arr;
+    })());
 
     return {
-      blogIds,
-      blogs,
+      blogGroups: blogsByTime,
       BlogContentTypes
     }
   }
@@ -54,7 +70,13 @@ export default {
   text-align: left;
 }
 
+.blog-group-title {
+  font-size: 150%;
+}
+
 .blog-link {
+  margin-top: 2%;
+  margin-bottom: 2%;
   text-decoration: underline;
 }
 </style>

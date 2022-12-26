@@ -47,9 +47,11 @@
 
 import {parseBlogContent, BlogContentTypes} from "@/util/BlogContentUtil";
 import {FolderOpened, Calendar} from "@element-plus/icons-vue";
-import {blogs} from "@/assets/Blogs";
+import {getBlog} from "@/assets/Blogs";
 import {useRoute} from 'vue-router';
-import "highlight.js/styles/intellij-light.css"
+import "highlight.js/styles/vs2015.css"
+import "markdown-it-texmath/css/texmath.css";
+import "katex/dist/katex.css";
 
 export default {
   name: "Blog",
@@ -67,7 +69,7 @@ export default {
       tags,
       createDate,
       updateDate
-    } = blogs[id];
+    } = getBlog(id);
 
     const content = parseBlogContent(contentRaw, contentType);
 
