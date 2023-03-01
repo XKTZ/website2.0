@@ -61,6 +61,8 @@ export const BlogPaths = {
     SoftwareDevelopment: ["Software Development"],
     Algorithms: ["Algorithms"],
     Codeforces: ["Algorithms", "Codeforces"],
+    Atcoder: ["Algorithms", "Atcoder"],
+    CCC: ["Algorithms", "CCC"],
     Hibernate: ["Software Development", "Hibernate"]
 }
 
