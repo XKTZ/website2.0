@@ -53,6 +53,10 @@ export const imgOf = (url, alt = '') => `![${alt}](${url})`
 
 export const urlOf = (url, alt = '') => `[${alt}](${url})`
 
+export const NoteCategory = {
+    AI: "Artificial Intelligence"
+}
+
 export const NotePaths = {
     AI: ["Artificial Intelligence"]
 }

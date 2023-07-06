@@ -17,7 +17,7 @@
     <el-divider/>
     <div class="note-component blog-content" v-html="content"></div>
     <el-divider/>
-    <div class="note-component info-block">
+    <div v-if="reference.length > 0" class="note-component info-block">
       <div class="info" v-for="refer in reference">
         <el-link  :href="refer instanceof Array ? refer[1]: refer" style="font-size: 14px;"
                  :underline="false">
