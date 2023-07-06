@@ -1,15 +1,15 @@
 <template>
-  <div class="blogs"
+  <div class="notes"
        :style="{
          'padding-top': this.$store.state.blogPaddingTop,
          'padding-bottom': this.$store.state.mainContainerPaddingBottom
        }">
     <div>
       <div v-for="grp in blogGroups">
-        <div class="blog-group-title">
+        <div class="note-group-title">
           {{ grp[0] }}
         </div>
-        <div v-for="blog in grp[1]" class="blog-link">
+        <div v-for="blog in grp[1]" class="note-link">
           <router-link
               custom
               :to="`/blog/${blog.id}/${blog.urlTitle}`"
@@ -64,17 +64,17 @@ export default {
 </script>
 
 <style scoped>
-.blogs {
+.notes {
   margin-left: 5%;
   margin-right: 5%;
   text-align: left;
 }
 
-.blog-group-title {
+.note-group-title {
   font-size: 150%;
 }
 
-.blog-link {
+.note-link {
   margin-top: 2%;
   margin-bottom: 2%;
   text-decoration: underline;

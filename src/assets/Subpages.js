@@ -19,6 +19,7 @@ const externalLink = (name, path) => {
 export const subpages = [
     routerLink("Home", "/"),
     routerLink("Projects", "/projects"),
+    routerLink("Notes", "/notes"),
     routerLink("Blogs", "/blogs"),
     routerLink("Skills", "/skills"),
     routerLink("Achievements", "/achievements"),

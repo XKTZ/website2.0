@@ -18,6 +18,15 @@
     <div class="note-component blog-content" v-html="content"></div>
     <el-divider/>
     <div class="note-component info-block">
+      <div class="info" v-for="refer in reference">
+        <el-link  :href="refer instanceof Array ? refer[1]: refer" style="font-size: 14px;"
+                 :underline="false">
+          > {{ refer instanceof Array ? refer[0] : refer }}
+        </el-link>
+      </div>
+    </div>
+    <el-divider/>
+    <div class="note-component info-block">
       <div class="info">
         <el-icon>
           <FolderOpened/>
@@ -27,18 +36,6 @@
           {{ tag }}
         </el-tag>
       </div>
-      <div class="info">
-        <el-icon>
-          <Calendar/>
-        </el-icon>
-        Created at: {{ createDate.toDateString() }}
-      </div>
-      <div class="info">
-        <el-icon>
-          <Calendar/>
-        </el-icon>
-        Last updated at: {{ updateDate.toDateString() }}
-      </div>
     </div>
   </div>
 </template>
@@ -47,14 +44,14 @@
 
 import {parseBlogContent, BlogContentTypes} from "@/util/BlogContentUtil";
 import {FolderOpened, Calendar} from "@element-plus/icons-vue";
-import {getBlog} from "@/assets/Blogs";
+import {getNote} from "@/assets/Notes";
 import {useRoute} from 'vue-router';
 import "highlight.js/styles/vs2015.css"
 import "markdown-it-texmath/css/texmath.css";
 import "katex/dist/katex.css";
 
 export default {
-  name: "Blog",
+  name: "Note",
   components: {FolderOpened, Calendar},
   setup() {
     const route = useRoute();
@@ -67,9 +64,8 @@ export default {
       contentType,
       paths,
       tags,
-      createDate,
-      updateDate
-    } = getBlog(id);
+      reference
+    } = getNote(id);
 
     const content = parseBlogContent(contentRaw, contentType);
 
@@ -79,9 +75,8 @@ export default {
       contentType,
       paths,
       tags,
-      createDate,
-      updateDate,
-      id
+      id,
+      reference
     }
   }
 }

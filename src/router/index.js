@@ -5,6 +5,8 @@ import Skills from "@/views/main/Skills";
 import Achievements from "@/views/main/Achievements";
 import Blogs from "@/views/main/Blogs";
 import Blog from "@/views/main/Blog";
+import Notes from "@/views/main/Notes";
+import Note from "@/views/main/Note.vue";
 
 const routes = [
   {
@@ -33,9 +35,19 @@ const routes = [
     component: Blogs
   },
   {
+    path: '/notes',
+    name: 'notes',
+    component: Notes
+  },
+  {
     path: '/blog/:id/:title',
     name: 'blog',
     component: Blog
+  },
+  {
+    path: '/note/:id/:title',
+    name: 'note',
+    component: Note
   }
 ]
 
