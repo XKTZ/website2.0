@@ -58,7 +58,8 @@ export const NoteCategory = {
 }
 
 export const NotePaths = {
-    AI: ["Artificial Intelligence"]
+    AI: ["Artificial Intelligence"],
+    ResNet: ["ResNet"]
 }
 
 export const BlogTags = {
