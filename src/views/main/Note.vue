@@ -21,7 +21,7 @@
       <div class="info" v-for="refer in reference.entries()" style="font-family: 'Times New Roman',serif">
         <el-link :href="refer[1] instanceof Array ? refer[1][1]: refer[1]" style="font-size: 16px;"
                  :underline="false">
-          [{{ refer[0] }}] {{ refer[1] instanceof Array ? refer[1][0] : refer[1] }}
+          [{{ refer[0] + 1 }}] {{ refer[1] instanceof Array ? refer[1][0] : refer[1] }}
         </el-link>
       </div>
     </div>
